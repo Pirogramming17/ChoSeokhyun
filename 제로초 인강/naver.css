@@ -51,6 +51,10 @@
   display: inline-block;
   vertical-align: middle;
   position: relative;
+  /* 자신의 컨테이닝 블록이 뭔지를 파악해야 position을 활용할 수 있다. 
+    relative의 경우 static한 위치를 기반으로 이동
+    absolute의 경우 자신을 감싸고 있는 컨테이닝 블록에 기반하여 이동
+  */
 }
 
 #header-search fieldset input {
