@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .blind {
   position: absolute;
   overflow: hidden;
@@ -24,6 +28,7 @@
   background-size: 457px 434px;
   background-position: 0 -158px;
   background-repeat: no-repeat;
+  vertical-align: middle;
 }
 
 #header-search h1 span {
@@ -35,11 +40,26 @@
 }
 
 #header-search fieldset {
-  width: 582px;
-  height: 52px;
+  width: 586px;
+  height: 56px;
   margin-left: 20px;
   padding: 0 0 0 0;
   border: 2px solid #19ce60;
   border-radius: 2px;
   display: inline-block;
+  vertical-align: middle;
+}
+
+#header-search fieldset input {
+  width: 474px;
+  height: 50px;
+  padding: 13px 15px;
+  margin: 1px;
+  background-color: #fff;
+  font-size: 18px;
+  line-height: 24px;
+  color: #000;
+  font-weight: 700;
+  outline: none;
+  border: none;
 }
