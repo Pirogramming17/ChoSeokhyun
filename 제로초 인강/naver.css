@@ -12,9 +12,22 @@
   width: 1080px;
 }
 
-#header-search > h1 {
-  width: 280px;
-  display: inline;
+#header-search a {
+  text-decoration: none;
+}
+
+#header-search h1 {
+  display: inline-block;
+  width: 222px;
+  height: 52px;
+  background-image: url(./sp_main.png);
+  background-size: 457px 434px;
+  background-position: 0 -158px;
+  background-repeat: no-repeat;
+}
+
+#header-search h1 span {
+  display: none;
 }
 
 #header-search h2 {
@@ -22,5 +35,11 @@
 }
 
 #header-search fieldset {
-  width: 520px;
+  width: 582px;
+  height: 52px;
+  margin-left: 20px;
+  padding: 0 0 0 0;
+  border: 2px solid #19ce60;
+  border-radius: 2px;
+  display: inline-block;
 }
