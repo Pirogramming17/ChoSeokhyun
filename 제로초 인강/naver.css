@@ -29,6 +29,8 @@
   background-position: 0 -158px;
   background-repeat: no-repeat;
   vertical-align: middle;
+  position: relative;
+  top: -6px;
 }
 
 #header-search h1 span {
@@ -48,6 +50,7 @@
   border-radius: 2px;
   display: inline-block;
   vertical-align: middle;
+  position: relative;
 }
 
 #header-search fieldset input {
@@ -65,12 +68,16 @@
 }
 
 #header-search fieldset button {
-  width: 54px;
-  height: 54px;
+  width: 56px;
+  height: 56px;
   border: none;
   padding: 0;
+  margin: 0;
   background-color: #19ce60;
   cursor: pointer;
+  position: absolute;
+  right: -2px;
+  top: -2px;
 }
 
 #search-image {
