@@ -2,3 +2,16 @@
   margin: 0 auto;
   width: 1080px;
 }
+
+#header-search > h1 {
+  width: 280px;
+  display: inline;
+}
+
+#header-search h2 {
+  display: none;
+}
+
+#header-search fieldset {
+  width: 520px;
+}
