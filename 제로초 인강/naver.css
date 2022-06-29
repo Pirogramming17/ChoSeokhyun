@@ -34,7 +34,8 @@ body {
 }
 
 .center-align {
-  margin: 0 0 0 20px;
+  margin: 0 auto;
+
   width: 1080px;
 }
 
@@ -130,6 +131,31 @@ header {
   top: -2px;
 }
 
+#search-keyboard {
+  background-image: url(./sp_main.png);
+  background-size: 457px 434px;
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 12px;
+  background-position: -420px -402px;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  right: 8px;
+}
+
+#search-history {
+  background-image: url(./sp_main.png);
+  background-size: 457px 434px;
+  display: inline-block;
+  width: 10px;
+  height: 5px;
+  background-position: -408px -100px;
+  background-repeat: no-repeat;
+  margin: 0 -1px;
+  vertical-align: middle;
+}
+
 #search-image {
   display: inline-block;
   width: 22px;
@@ -137,7 +163,7 @@ header {
   background-position: -420px 0;
   background-size: 457px 434px;
   background-repeat: no-repeat;
-  vertical-align: top;
+  vertical-align: middle;
   background-image: url(./sp_main.png);
   border-radius: 0 2px 2px 0;
 }
@@ -269,4 +295,13 @@ nav li a {
   position: absolute;
   top: 16px;
   right: 100px;
+}
+
+main {
+  background-color: #f2f4f7;
+  overflow: auto;
+}
+
+main h3:nth-of-type(2) {
+  background-color: red;
 }
