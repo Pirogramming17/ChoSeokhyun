@@ -6,6 +6,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  font-family: Dotum, "돋움", Helvetica, "Apple SD Gothic Neo", sans-serif;
 }
 
 #fixed {
@@ -17,6 +18,10 @@ body {
   height: 100px;
   border: 1px solid black;
   border-radius: 50px;
+}
+
+.relative {
+  position: relative;
 }
 
 .blind {
@@ -33,17 +38,25 @@ body {
   width: 1080px;
 }
 
+header {
+  height: 160px;
+}
+
 #header-top {
   float: right;
+  margin-top: 8px;
 }
 
 #header-top span {
   font-size: 11px;
   color: #404040;
+  letter-spacing: -1px;
+  line-height: 22px;
 }
 
 #header-search {
   clear: both;
+  padding-top: 20px;
 }
 
 #header-search a {
@@ -60,7 +73,8 @@ body {
   background-repeat: no-repeat;
   vertical-align: middle;
   position: relative;
-  top: -6px;
+  top: -20px;
+  left: 1px;
 }
 
 #header-search h1 span {
@@ -81,6 +95,8 @@ body {
   display: inline-block;
   vertical-align: middle;
   position: relative;
+  top: -14px;
+  left: 2px;
   /* 자신의 컨테이닝 블록이 뭔지를 파악해야 position을 활용할 수 있다. 
     relative의 경우 static한 위치를 기반으로 이동
     absolute의 경우 자신을 감싸고 있는 컨테이닝 블록에 기반하여 이동
@@ -126,10 +142,22 @@ body {
   border-radius: 0 2px 2px 0;
 }
 
+nav {
+  height: 52px;
+  margin: 0 auto;
+  border-top: 1px solid #e0e4e7;
+  border-bottom: 1px solid #eaeaea;
+}
+
 nav ul {
+  display: inline-block;
   margin: 0;
-  padding: 0;
+  padding: 11px 0 0 4px;
   list-style: none;
+}
+
+#nav-ul {
+  margin-left: 30px;
 }
 
 nav li {
@@ -142,11 +170,7 @@ nav li {
 }
 
 nav li a {
-  margin-left: 5px;
-}
-
-nav #nav-ul {
-  margin-left: 35px;
+  margin-left: 8px;
 }
 
 .fix_nav {
@@ -173,7 +197,7 @@ nav #nav-ul {
   background-color: transparent;
   cursor: pointer;
   position: absolute;
-  right: 30px;
+  right: 36px;
   top: -4px;
 }
 
@@ -239,4 +263,10 @@ nav #nav-ul {
   position: relative;
   top: 5px;
   right: -10px;
+}
+
+#weather {
+  position: absolute;
+  top: 16px;
+  right: 100px;
 }

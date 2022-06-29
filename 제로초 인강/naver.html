@@ -8,7 +8,6 @@
   </head>
   <body>
     <header>
-      <div id="fixed">고정</div>
       <div class="center-align">
         <!--  가운데 정렬용 div -->
         <div id="header-top">
@@ -17,7 +16,7 @@
           <span>해피빈</span>
         </div>
 
-        <div id="header-search" style="clear: both">
+        <div id="header-search">
           <a href="https://www.naver.com">
             <h1>
               <span>네이버</span>
@@ -42,7 +41,11 @@
     </header>
 
     <nav>
-      <div class="center-align">
+      <div class="center-align relative">
+        <div id="weather">
+          <h2 class="blind">날씨</h2>
+          <span>현재 기온</span>
+        </div>
         <ul id="nav-ul">
           <li>
             <a href="https://mail.naver.com/" class="fix_nav">
