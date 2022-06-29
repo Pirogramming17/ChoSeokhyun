@@ -203,10 +203,9 @@ nav ul {
   margin-left: 30px;
 }
 
-nav li {
+nav #nav-ul li {
   display: inline-block;
   padding: auto;
-  font-size: 15px;
   line-height: 30px;
   font-weight: 700;
   letter-spacing: -0.3px;
@@ -316,8 +315,28 @@ nav li a {
 
 #search-ranking {
   position: absolute;
-  top: 16px;
-  right: 100px;
+  top: 14px;
+  right: 0;
+  width: 198px;
+  height: 20px;
+}
+
+#search-ranking:hover ul {
+  display: inline-block;
+}
+
+#search-ranking ul {
+  display: none;
+  list-style: none;
+  padding: 17px;
+  margin: 0;
+  width: 332px;
+  height: 334px;
+  border: 1px solid #aaa;
+  background-color: #fff;
+  position: absolute;
+  top: -15px;
+  right: 0;
 }
 
 #rank-number {
