@@ -402,6 +402,54 @@ main {
   margin-bottom: 8px;
 }
 
+#main-login .login-wrapper {
+  padding: 8px 15px;
+}
+
+#main-login .login-wrapper #login-tag {
+  display: block;
+  margin-top: 12px;
+  background-color: #19ce60;
+  border: 1px solid #15c654;
+  border-radius: 2px;
+  font-size: 13px;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  width: 298px;
+  height: 48px;
+}
+
+#main-login .login-text {
+  color: #888;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+#main-login .login-img {
+  background-image: url(./sp_main.png);
+  background-size: 457px 434px;
+  display: inline-block;
+  width: 60px;
+  height: 12px;
+  background-position: -138px -330px;
+  background-repeat: no-repeat;
+  margin-top: 16px;
+}
+
+#main-login .login-signup {
+  float: right;
+  font-size: 12px;
+  line-height: 38px;
+  color: #666;
+  text-decoration: none;
+}
+
+#main-login .login-signup:hover {
+  text-decoration: underline;
+}
+
 #main-second-block {
   display: inline-block;
   vertical-align: top;
