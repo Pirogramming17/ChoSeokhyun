@@ -178,7 +178,7 @@ nav {
 nav ul {
   display: inline-block;
   margin: 0;
-  padding: 11px 0 0 4px;
+  padding: 5px 0 0 5px;
   list-style: none;
 }
 
@@ -291,6 +291,12 @@ nav li a {
   right: -10px;
 }
 
+.more {
+  color: #202020;
+  font-size: 13px;
+  text-decoration: none;
+}
+
 #weather {
   position: absolute;
   top: 16px;
@@ -299,7 +305,8 @@ nav li a {
 
 main {
   background-color: #f2f4f7;
-  overflow: auto;
+  display: inline-block;
+  width: 100%;
 }
 
 main h3:nth-of-type(2) {
