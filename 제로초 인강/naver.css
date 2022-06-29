@@ -33,6 +33,19 @@ body {
   width: 1080px;
 }
 
+#header-top {
+  float: right;
+}
+
+#header-top span {
+  font-size: 11px;
+  color: #404040;
+}
+
+#header-search {
+  clear: both;
+}
+
 #header-search a {
   text-decoration: none;
 }
