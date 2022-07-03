@@ -15,87 +15,62 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
     />
-    <style>
-      html,
-      body {
-        width: 100%;
-        height: 100%;
-      }
-      section {
-        width: 100%;
-        height: 100%;
-      }
-      .container {
-        width: 100%;
-        height: 100%;
-      }
-      .navbar .navbar-brand {
-        margin-left: 1rem;
-      }
-
-      #intro {
-        background-color: #fff;
-      }
-
-      #start {
-        background-color: rgb(164, 163, 163);
-      }
-
-      #highlight {
-        background-color: dimgray;
-      }
-
-      #footer {
-        background-color: rgb(44, 44, 44);
-      }
-    </style>
+    <link rel="stylesheet" href="./style.css" />
     <title>Bootstrap</title>
   </head>
   <body>
     <header id="header" class="sticky-top">
-      <nav class="navbar navbar-expand-md bg-secondary navbar-secondary">
-        <!-- 제목 -->
-        <a class="navbar-brand" href="#">Pirogramming</a>
-        <span class="navbar-text">SeokHyun Cho</span>
-        <!-- Toggler/collapsibe Button -->
+      <nav class="navbar navbar-expand-md d-flex">
+        <a class="navbar-brand text-white mx-3" href="#">Pirogramming</a>
+        <span class="navbar-text text-info ms-4 me-1">SeokHyun Cho</span>
         <button
-          class="navbar-toggler"
+          class="navbar-toggler order-first ms-1"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#collapsibleNavbar"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-          <!-- 리스트 : 부트스트랩은 모바일 우선이라 화면이 작으면 아래로 쌓아서 내려온다 -->
-          <ul class="navbar-nav navbar-dark">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Link 1</a>
+        <div class="collapse navbar-collapse mt-1 px-3" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#intro">Intro</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link 2</a>
+              <a class="nav-link color-change" href="#highlight">Highlights</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#">Link 3</a>
+              <a class="nav-link color-change" href="#gallery">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link color-change" href="#contact">Contact</a>
             </li>
           </ul>
-          <button type="button" class="btn btn-dark">About</button>
+          <button
+            type="button"
+            class="btn btn-outline-info ms-auto me-3"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+          >
+            About
+          </button>
         </div>
       </nav>
     </header>
-    <section id="intro">
+
+    <section id="start">
       <div
         class="container d-flex flex-column justify-content-center align-items-center"
       >
         <h2>Pirogramming17</h2>
         <p>Cheer up</p>
         <div class="w-100 border-bottom border-dark border-2"></div>
-        <a class="mt-2 btn btn-primary" href="#start" role="button"
+        <a class="mt-2 btn btn-primary" href="#intro" role="button"
           >Get Started</a
         >
       </div>
     </section>
-    <section id="start">
+    <section id="intro">
       <div class="container-fluid">start</div>
     </section>
     <section id="highlight">
@@ -111,4 +86,36 @@
       crossorigin="anonymous"
     ></script>
   </body>
+  <div
+    class="modal fade"
+    id="staticBackdrop"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header d-flex justify-content-center">
+          <h5 class="modal-title text-white" id="staticBackdropLabel">
+            피로그래밍 17기
+          </h5>
+        </div>
+        <div class="modal-body text-white p-5">
+          피로그래밍은 프로그래밍 공부를 하고 싶으나 어디서부터 시작해야 할지
+          막막한 비전공자들이 Python과 Django 프레임워크를 기반으로 웹 개발을
+          배우고 자신만의 웹 서비스를 만들어내는 동아리입니다. 비전공자를
+          기준으로 기초부터 쉽게 차근차근 공부하며 방학동안 집중적으로 코딩에
+          전념하여 웹 프로그래밍의 기반을 확보하는 것을 목표로 합니다.
+        </div>
+        <div class="modal-footer">
+          <a href="">Download</a>
+          <button type="button" class="btn btn-info" data-bs-dismiss="modal">
+            OK
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </html>
