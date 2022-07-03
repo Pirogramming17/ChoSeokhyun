@@ -19,7 +19,7 @@
     <title>Bootstrap</title>
   </head>
   <body>
-    <header id="header" class="sticky-top">
+    <header id="header" class="fixed-top">
       <nav class="navbar navbar-expand-md d-flex">
         <a class="navbar-brand text-white mx-3" href="#">Pirogramming</a>
         <span class="navbar-text text-info ms-4 me-1">SeokHyun Cho</span>
@@ -71,7 +71,16 @@
       </div>
     </section>
     <section id="intro">
-      <div class="container-fluid">start</div>
+      <div
+        class="container d-flex flex-column justify-content-center align-items-center"
+      >
+        <h2 class="text-danger">Built On the Bootstrap Grid</h2>
+        <p>Cheer up</p>
+        <div class="w-100 border-bottom border-dark border-2"></div>
+        <a class="mt-2 btn btn-primary" href="#intro" role="button"
+          >Get Started</a
+        >
+      </div>
     </section>
     <section id="highlight">
       highlight
