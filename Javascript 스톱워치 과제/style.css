@@ -1,0 +1,92 @@
+.container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.title__container {
+  margin: 10px;
+  position: relative;
+}
+
+.title__container i {
+  position: absolute;
+  font-size: 24px;
+}
+
+.title__container span {
+  margin-left: 25px;
+  font-size: 24px;
+  font-weight: bolder;
+}
+
+.timer__container {
+  width: 50%;
+  height: 50%;
+  padding: 2rem 2rem 0 2rem;
+  background-color: black;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+.time__container {
+  background-color: #fff;
+  height: 50%;
+  border-radius: 8px;
+}
+.time__container .time {
+  font-size: 60px;
+  vertical-align: middle;
+}
+
+.btn__container {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.btn__container button {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 8px;
+}
+
+.bottom__container {
+  width: 50%;
+  height: 50%;
+  padding: 2rem 2rem 0 2rem;
+}
+
+.menu__container {
+  font-size: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: red;
+  padding: 0.5rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.log__container {
+  font-size: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.5rem 0 0.5rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  background-color: white;
+}
+
+.log__container .space {
+  width: 5%;
+}
+
+.fa-solid,
+.fa-regular {
+  color: #000;
+}

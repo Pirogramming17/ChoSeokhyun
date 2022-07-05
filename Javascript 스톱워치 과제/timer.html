@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timer</title>
+    <link rel="stylesheet" href="./style.css" />
     <script
       src="https://kit.fontawesome.com/3054891da6.js"
       crossorigin="anonymous"
@@ -12,28 +13,201 @@
   </head>
   <body>
     <div class="container">
-      <div class="titie__container">
+      <div class="title__container">
         <i class="fa-solid fa-stopwatch"></i>
-        <h3>조석현의 스톱워치</h3>
+        <span class="title">조석현의 스톱워치</span>
       </div>
       <div class="timer__container">
         <div class="time__container">
-          <div class="time"></div>
+          <span class="time">00:00</span>
         </div>
         <div class="btn__container">
-          <button class="start">Start</button>
-          <button class="stop">Stop</button>
-          <button class="reset">Reset</button>
+          <button id="start">Start</button>
+          <button id="stop">Stop</button>
+          <button id="reset">Reset</button>
         </div>
       </div>
       <div class="bottom__container">
         <div class="menu__container">
-          <div class="menu"></div>
+          <a
+            href="javascript:void(0)"
+            onclick="allSelect(event)"
+            class="fa-stack all-unchecked"
+          >
+            <i class="fa-regular fa-circle fa-stack-2x"></i>
+            <i class=""></i
+          ></a>
+          <div class="time">
+            <span class="menu__time">구간 기록</span>
+          </div>
+          <div class="delete">
+            <a class="fa-solid fa-trash"></a>
+          </div>
         </div>
-        <div class="log__container">
-          <div class="log"></div>
+        <div class="log__box">
+          <!-- <div class="log__container">
+            <div class="check">
+              <a class="fa-stack">
+                <i class="fa-regular fa-circle fa-stack-2x"></i>
+                <i class="fa-solid fa-check fa-stack-1x"></i
+              ></a>
+            </div>
+            <div class="log">
+              <span class="log__time"></span>
+            </div>
+            <div class="space"></div>
+          </div> -->
         </div>
       </div>
     </div>
+    <script>
+      const startBtn = document.querySelector("#start");
+      const stopBtn = document.querySelector("#stop");
+      const resetBtn = document.querySelector("#reset");
+      const logBox = document.querySelector(".log__box");
+
+      let time = 0;
+      let sec = 0;
+      let msec = 0;
+      let timer;
+      let tms;
+      let ts;
+
+      function init() {
+        time = 0;
+        sec = 0;
+        msec = 0;
+        document.querySelector(".time").innerHTML = "00:00";
+      }
+
+      function start() {
+        if (time == 0) {
+          init();
+        }
+
+        timer = setInterval(function () {
+          time++;
+
+          msec = time;
+          if (msec == 100) {
+            time = 0;
+            sec += 1;
+            msec = 0;
+          }
+
+          tms = msec;
+          ts = sec;
+          if (tms < 10) {
+            tms = "0" + msec;
+          }
+          if (ts < 10) {
+            ts = "0" + sec;
+          }
+
+          document.querySelector(".time").innerHTML = ts + ":" + tms;
+        }, 10);
+      }
+
+      function stop() {
+        if (time != 0) {
+          clearInterval(timer);
+          const newLength = logBox.children.length + 1;
+          const newLogContainer = document.createElement("div");
+          newLogContainer.className = "log__container";
+
+          const newCheck = document.createElement("div");
+          newCheck.className = "check";
+
+          const newLog = document.createElement("div");
+          newLog.className = "log";
+
+          const newSpace = document.createElement("div");
+          newSpace.className = "space";
+
+          const newA = document.createElement("a");
+          newA.setAttribute("href", "javascript:void(0)");
+          newA.setAttribute("onClick", "select(event)");
+          newA.classList.add("fa-stack");
+          newA.classList.add("unchecked");
+
+          const newCircleOut = document.createElement("i");
+          newCircleOut.classList.add("fa-regular");
+          newCircleOut.classList.add("fa-circle");
+          newCircleOut.classList.add("fa-stack-2x");
+
+          const newCircleIn = document.createElement("i");
+
+          const newLogTime = document.createElement("span");
+
+          newA.appendChild(newCircleOut);
+          newA.appendChild(newCircleIn);
+
+          newLogTime.textContent = `${ts} : ${tms}`;
+          newLog.appendChild(newLogTime);
+
+          newCheck.appendChild(newA);
+
+          newLogContainer.appendChild(newCheck);
+          newLogContainer.appendChild(newLog);
+          newLogContainer.appendChild(newSpace);
+
+          logBox.appendChild(newLogContainer);
+        }
+      }
+
+      function reset() {
+        if (time != 0) {
+          clearInterval(timer);
+          init();
+        }
+      }
+
+      function select(event) {
+        const currentTag = event.currentTarget;
+        const icon = currentTag.children[1];
+        if (currentTag.classList.contains("unchecked")) {
+          currentTag.classList.replace("unchecked", "checked");
+          icon.classList.add("fa-solid");
+          icon.classList.add("fa-check");
+          icon.classList.add("fa-stack-1x");
+        } else {
+          currentTag.classList.replace("checked", "unchecked");
+          icon.className = "";
+        }
+      }
+
+      function allSelect(event) {
+        const currentTag = event.currentTarget;
+        const icon = currentTag.children[1];
+        let solidcheck;
+        if (currentTag.classList.contains("all-unchecked")) {
+          currentTag.classList.replace("all-unchecked", "all-checked");
+          icon.classList.add("fa-solid");
+          icon.classList.add("fa-check");
+          icon.classList.add("fa-stack-1x");
+
+          solidcheck = document.querySelectorAll(".unchecked");
+          solidcheck.forEach((sc) => {
+            sc.classList.replace("unchecked", "checked"),
+              sc.children[1].classList.add("fa-solid"),
+              sc.children[1].classList.add("fa-check"),
+              sc.children[1].classList.add("fa-stack-1x");
+          });
+        } else {
+          currentTag.classList.replace("all-checked", "all-unchecked");
+          icon.className = "";
+          solidcheck = document.querySelectorAll(".checked");
+          solidcheck.forEach((sc) => {
+            sc.classList.replace("checked", "unchecked"),
+              (sc.children[1].className = "");
+          });
+        }
+      }
+
+      function del() {}
+      startBtn.addEventListener("click", start);
+      stopBtn.addEventListener("click", stop);
+      resetBtn.addEventListener("click", reset);
+    </script>
   </body>
 </html>
