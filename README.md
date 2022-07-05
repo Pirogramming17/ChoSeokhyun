@@ -5,4 +5,5 @@
 - [x] 제로초 인강
 - [ ] 깃허브 페이지 과제
 - [x] 파이썬 과제
-- [ ] Bootstrap 과제
+- [x] Bootstrap 과제
+- [ ] Javascript 스톱워치 과제
