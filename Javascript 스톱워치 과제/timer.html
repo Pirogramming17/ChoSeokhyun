@@ -41,13 +41,17 @@
             <span class="menu__time">구간 기록</span>
           </div>
           <div class="delete">
-            <a class="fa-solid fa-trash"></a>
+            <a
+              href="javascript:void(0)"
+              onclick="del()"
+              class="fa-solid fa-trash"
+            ></a>
           </div>
         </div>
         <div class="log__box">
           <!-- <div class="log__container">
             <div class="check">
-              <a class="fa-stack">
+              <a class="fa-stack unchecked">
                 <i class="fa-regular fa-circle fa-stack-2x"></i>
                 <i class="fa-solid fa-check fa-stack-1x"></i
               ></a>
@@ -204,7 +208,14 @@
         }
       }
 
-      function del() {}
+      function del() {
+        const delTarget = document.querySelectorAll(".checked");
+        delTarget.forEach((target) =>
+          target.parentNode.parentNode.parentNode.removeChild(
+            target.parentNode.parentNode
+          )
+        );
+      }
       startBtn.addEventListener("click", start);
       stopBtn.addEventListener("click", stop);
       resetBtn.addEventListener("click", reset);
