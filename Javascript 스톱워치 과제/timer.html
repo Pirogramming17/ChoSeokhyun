@@ -68,7 +68,6 @@
       const startBtn = document.querySelector("#start");
       const stopBtn = document.querySelector("#stop");
       const resetBtn = document.querySelector("#reset");
-      const logBox = document.querySelector(".log__box");
 
       let time = 0;
       let sec = 0;
@@ -115,6 +114,7 @@
       function stop() {
         if (time != 0) {
           clearInterval(timer);
+          const logBox = document.querySelector(".log__box");
           const newLength = logBox.children.length + 1;
           const newLogContainer = document.createElement("div");
           newLogContainer.className = "log__container";
@@ -210,6 +210,12 @@
 
       function del() {
         const delTarget = document.querySelectorAll(".checked");
+        const changeAllState = document.querySelector(".all-checked");
+        if (changeAllState != null) {
+          changeAllState.classList.replace("all-checked", "all-unchecked");
+          changeAllState.children[1].className = "";
+        }
+
         delTarget.forEach((target) =>
           target.parentNode.parentNode.parentNode.removeChild(
             target.parentNode.parentNode
