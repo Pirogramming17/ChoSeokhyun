@@ -5,6 +5,7 @@ curNum = 0
 num = 0
 end = False
 
+
 while(1):
     while(1):
         try:
@@ -21,6 +22,7 @@ while(1):
         curNum += 1
         print(f"player A : {curNum}")
         if(curNum == 31):
+            print("playerB win!")
             end = True
             break
     if(end):
@@ -41,6 +43,7 @@ while(1):
         curNum += 1
         print(f"player B : {curNum}")
         if(curNum == 31):
+            print("playerA win!")
             end = True
             break
     if(end):
