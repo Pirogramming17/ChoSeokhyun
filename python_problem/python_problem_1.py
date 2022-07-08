@@ -38,4 +38,3 @@ while(1):
         print(f"{playerA} win!")
         break;
     
-
