@@ -9,7 +9,9 @@
   <body>
     {% for review in reviews %}
     <article>
-      <h1><a href="/detail">{{review.title}}</a></h1>
+      <h1>
+        <a href="{% url 'reviews:detail' review.id %}">{{review.title}}</a>
+      </h1>
       <p>{{review.release}}</p>
       <p>{{review.genre}}</p>
       <p>{{review.star}}</p>

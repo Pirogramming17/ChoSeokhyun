@@ -10,3 +10,12 @@ def home(request):
     }
 
     return render(request, template_name="reviews/home.html", context=context)
+
+def detail(request, id):
+    review = Review.objects.get(id=id)
+
+    context = {
+        "review" : review
+    }
+
+    return render(request, template_name="reviews/detail.html", context=context)
