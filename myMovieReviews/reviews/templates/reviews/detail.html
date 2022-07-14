@@ -11,6 +11,11 @@
     <h2><a href="{% url 'reviews:create' %}">Add a New Review</a></h2>
     <article>
       <h2>제목 : {{ review.title }}</h2>
+      <a href="{% url 'reviews:modify' review.id %}">수정</a>
+      <form action="{% url 'reviews:delete' review.id %}" method="post">
+        {% csrf_token %}
+        <button>삭제</button>
+      </form>
       <p>개봉년도: {{ review.release }}</p>
       <p>감독: {{review.director}}</p>
       <p>주연: {{review.actor}}</p>
