@@ -8,6 +8,7 @@
   </head>
   <body>
     <h1><a href="/">my Movie reviews</a></h1>
+    <h2><a href="{% url 'reviews:create' %}">Add a New Review</a></h2>
     <article>
       <h2>제목 : {{ review.title }}</h2>
       <p>개봉년도: {{ review.release }}</p>
