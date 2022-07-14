@@ -4,14 +4,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>홈 화면</title>
+    <title>My Movie reviews</title>
   </head>
   <body>
+    <h1><a href="/">my Movie reviews</a></h1>
     {% for review in reviews %}
     <article>
-      <h1>
+      <h2>
         <a href="{% url 'reviews:detail' review.id %}">{{review.title}}</a>
-      </h1>
+      </h2>
       <p>{{review.release}}</p>
       <p>{{review.genre}}</p>
       <p>{{review.star}}</p>
