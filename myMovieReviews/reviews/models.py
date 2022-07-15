@@ -10,3 +10,5 @@ class Review(models.Model):
     content = models.TextField(verbose_name="리뷰")
     director = models.CharField(max_length=50, verbose_name="감독")
     actor = models.CharField(max_length=50, verbose_name="배우")
+    img = models.TextField(verbose_name="이미지 링크")
+    poster = models.TextField(verbose_name="포스터 링크", default='')

@@ -23,8 +23,10 @@ def create(request):
         content = request.POST["content"]
         director = request.POST["director"]
         actor = request.POST["actor"]
+        img = request.POST["img"]
+        poster = request.POST["poster"]
 
-        Review.objects.create(title=title, release=release, genre=genre, star=star, time=time, content=content, director=director, actor=actor)
+        Review.objects.create(title=title, release=release, genre=genre, star=star, time=time, content=content, director=director, actor=actor, img=img ,poster=poster)
         return redirect("/")
     
     else:
@@ -34,8 +36,8 @@ def create(request):
         time = request.GET.get("time")
         director = request.GET.get("director")
         actor = request.GET.get("actor")
-
-        
+        img = request.GET.get("img")
+        poster = request.GET.get("poster")
 
         if title == None:
             context = {}
@@ -46,7 +48,9 @@ def create(request):
             'genre':genre, 
             'time':time, 
             'director':director, 
-            'actor':actor
+            'actor':actor,
+            'img':img,
+            'poster':poster,
         }
         return render(request, template_name="reviews/create.html", context=context)
 
@@ -54,12 +58,14 @@ def search(request):
     if request.method == "POST":
         title = request.POST["title"]
         results = searchInfo(title)
-        context = {
-            "results" : results
-        }
         if results:
+            context = {
+            "results" : results
+            }
             return render(request, template_name="reviews/search.html", context = context)
-    return redirect("/")
+        else:
+            context = {}
+            return render(request, template_name="reviews/search.html", context = context)
 
 def detail(request, id):
     review = Review.objects.get(id=id)
@@ -80,7 +86,7 @@ def modify(request, id):
         content = request.POST["content"]
         director = request.POST["director"]
         actor = request.POST["actor"]
-
+        
         Review.objects.filter(id=id).update(title=title, release=release, genre=genre, star=star, time=time, content=content, director=director, actor=actor)
         return redirect(f"/review/{id}")
     else:

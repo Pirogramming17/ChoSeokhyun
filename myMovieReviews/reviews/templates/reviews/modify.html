@@ -4,65 +4,104 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
     <title>My Movie reviews</title>
+    <style>
+      input[type="number"]::-webkit-outer-spin-button,
+      input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    </style>
   </head>
   <body>
-    <form action="{% url 'reviews:modify' review.id %}" method="post">
-      {% csrf_token %}
-      <h2>
-        <input
-          type="text"
-          name="title"
-          placeholder="제목"
-          value="{{review.title}}"
-        />
-      </h2>
-      <p>
-        <input
-          type="number"
-          name="release"
-          placeholder="개봉년도"
-          value="{{review.release}}"
-        />
-        <input
-          type="text"
-          name="genre"
-          placeholder="장르"
-          value="{{review.genre}}"
-        />
-        <input
-          type="number"
-          name="star"
-          step="0.01"
-          placeholder="별점"
-          value="{{review.star}}"
-        />
-        <input
-          type="number"
-          name="time"
-          placeholder="러닝타임"
-          value="{{review.time}}"
-        />
-        <textarea name="content" id="" cols="30" rows="10">
+    <div class="container">
+      <form
+        class="align-items-center d-flex justify-content-center flex-column"
+        action="{% url 'reviews:modify' review.id %}"
+        method="post"
+      >
+        {% csrf_token %}
+        <div class="my-2">
+          <input
+            type="text"
+            name="title"
+            placeholder="제목"
+            value="{{review.title}}"
+            required
+          />
+        </div>
+        <div class="my-2">
+          <input
+            type="number"
+            name="release"
+            placeholder="개봉년도"
+            value="{{review.release}}"
+          />
+        </div>
+        <div class="my-2">
+          <input
+            type="text"
+            name="genre"
+            placeholder="장르"
+            value="{{review.genre}}"
+          />
+        </div>
+        <div class="my-2">
+          <input
+            type="number"
+            name="star"
+            step="0.01"
+            placeholder="별점"
+            value="{{review.star}}"
+            required
+          />
+        </div>
+        <div class="my-2">
+          <input
+            type="number"
+            name="time"
+            placeholder="러닝타임"
+            value="{{review.time}}"
+            required
+          />
+        </div>
+        <div class="my-2">
+          <textarea name="content" id="" cols="30" rows="10" required>
 {{review.content}}</textarea
-        >
-        <input
-          type="text"
-          name="director"
-          placeholder="감독"
-          value="{{review.director}}"
-        />
-        <input
-          type="text"
-          name="actor"
-          placeholder="배우"
-          value="{{review.actor}}"
-        />
-      </p>
+          >
+        </div>
+        <div class="my-2">
+          <input
+            type="text"
+            name="director"
+            placeholder="감독"
+            value="{{review.director}}"
+          />
+        </div>
+        <div class="my-2">
+          <input
+            type="text"
+            name="actor"
+            placeholder="배우"
+            value="{{review.actor}}"
+          />
+        </div>
 
-      <div>
-        <input type="submit" value="Save" />
-      </div>
-    </form>
+        <div>
+          <input type="submit" value="Save" />
+        </div>
+      </form>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
