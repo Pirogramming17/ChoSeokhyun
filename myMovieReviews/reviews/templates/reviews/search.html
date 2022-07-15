@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Movie reviews</title>
+  </head>
+  <body>
+    {% for result in results %}
+    <form action="/create">
+      {% csrf_token %}
+      <h2>
+        <input
+          type="text"
+          name="title"
+          placeholder="제목"
+          value="{{result.0}}"
+          readonly
+        />
+      </h2>
+      <p>
+        <input
+          type="number"
+          name="release"
+          placeholder="개봉년도"
+          value="{{result.4}}"
+          readonly
+        />
+        <input
+          type="text"
+          name="genre"
+          placeholder="장르"
+          value="{{result.1}}"
+          readonly
+        />
+        <input
+          type="number"
+          name="time"
+          placeholder="러닝타임"
+          value="{{result.3}}"
+          readonly
+        />
+        <input
+          type="text"
+          name="director"
+          placeholder="감독"
+          value="{{result.5}}"
+          readonly
+        />
+        <input
+          type="text"
+          name="actor"
+          placeholder="배우"
+          value="{{result.6}}"
+          readonly
+        />
+      </p>
+
+      <div>
+        <input type="submit" value="Save" />
+      </div>
+    </form>
+    {% endfor %}
+  </body>
+</html>

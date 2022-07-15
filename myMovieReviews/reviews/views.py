@@ -1,4 +1,6 @@
 from django.shortcuts import redirect, render
+
+from reviews.movie_info import searchInfo
 from .models import Review
 
 # Create your views here.
@@ -26,8 +28,38 @@ def create(request):
         return redirect("/")
     
     else:
-        context = {}
+        title = request.GET.get("title")
+        release = request.GET.get("release")
+        genre = request.GET.get("genre")
+        time = request.GET.get("time")
+        director = request.GET.get("director")
+        actor = request.GET.get("actor")
+
+        
+
+        if title == None:
+            context = {}
+        else:
+            context = {
+            'title':title,
+            'release':release, 
+            'genre':genre, 
+            'time':time, 
+            'director':director, 
+            'actor':actor
+        }
         return render(request, template_name="reviews/create.html", context=context)
+
+def search(request):
+    if request.method == "POST":
+        title = request.POST["title"]
+        results = searchInfo(title)
+        context = {
+            "results" : results
+        }
+        if results:
+            return render(request, template_name="reviews/search.html", context = context)
+    return redirect("/")
 
 def detail(request, id):
     review = Review.objects.get(id=id)
@@ -57,6 +89,8 @@ def modify(request, id):
             "review" : review
         }
         return render(request, template_name="reviews/modify.html", context=context)
+
+
 def delete(request, id):
     if request.method == "POST":
         Review.objects.filter(id=id).delete()
