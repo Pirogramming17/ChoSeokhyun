@@ -5,7 +5,11 @@ from .models import Review
 
 # Create your views here.
 def home(request):
-    reviews = Review.objects.all()
+    sort = request.GET.get('sort','')
+    if sort == '':
+        reviews = Review.objects.all()
+    else:
+        reviews = Review.objects.all().order_by(sort)
     context = {
         "reviews" : reviews
     }

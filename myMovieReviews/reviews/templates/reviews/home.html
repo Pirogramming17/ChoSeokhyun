@@ -24,10 +24,23 @@
   <body>
     {% load mathfilters %}
     <div class="container mb-5">
-      <ul class="nav fixed-top justify-content-between bg-light border-bottom">
+      <ul
+        class="nav fixed-top justify-content-between bg-light border-bottom align-items-center"
+      >
         <li class="nav-item">
           <h3><a class="nav-link text-dark" href="/">my Movie reviews</a></h3>
         </li>
+        <form action="{% url 'reviews:home' %}">
+          <select name="sort">
+            <option value="title">제목 오름차순</option>
+            <option value="-title">제목 내림차순</option>
+            <option value="star">별점 오름차순</option>
+            <option value="-star">별점 내림차순</option>
+            <option value="time">러닝타임 오름차순</option>
+            <option value="-time">러닝타임 내림차순</option>
+          </select>
+          <button class="btn btn-dark" type="submit" value="">정렬</button>
+        </form>
         <li class="nav-item">
           <a class="nav-link text-dark" href="{% url 'reviews:create' %}"
             >Add a New Review</a
