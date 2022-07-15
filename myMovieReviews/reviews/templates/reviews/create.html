@@ -20,7 +20,7 @@
     </style>
   </head>
   <body>
-    <div class="container mb-5">
+    <div class="container mb-2">
       <form
         class="align-items-center d-flex justify-content-center flex-column"
         action="/search"
@@ -43,7 +43,7 @@
         method="post"
       >
         {% csrf_token %}
-        <div class="my-2">
+        <div class="my-1">
           <input
             type="text"
             name="title"
@@ -52,7 +52,7 @@
             required
           />
         </div>
-        <div class="my-2">
+        <div class="my-1">
           <input
             type="number"
             name="release"
@@ -60,7 +60,7 @@
             value="{{release}}"
           />
         </div>
-        <div class="my-2">
+        <div class="my-1">
           <input
             type="text"
             name="genre"
@@ -68,7 +68,7 @@
             value="{{genre}}"
           />
         </div>
-        <div class="my-2">
+        <div class="my-1">
           <input
             type="number"
             name="star"
@@ -77,7 +77,7 @@
             required
           />
         </div>
-        <div class="my-2">
+        <div class="my-1">
           <input
             type="number"
             name="time"
@@ -86,7 +86,7 @@
             required
           />
         </div>
-        <div class="my-2">
+        <div class="my-1">
           <textarea
             name="content"
             id=""
@@ -95,7 +95,7 @@
             required
           ></textarea>
         </div>
-        <div class="my-2">
+        <div class="my-1">
           <input
             type="text"
             name="director"
@@ -103,7 +103,7 @@
             value="{{director}}"
           />
         </div>
-        <div class="my-2">
+        <div class="my-1">
           <input
             type="text"
             name="actor"
