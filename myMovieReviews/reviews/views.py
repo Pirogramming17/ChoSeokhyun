@@ -6,7 +6,6 @@ from .models import Review
 # Create your views here.
 def home(request):
     reviews = Review.objects.all()
-
     context = {
         "reviews" : reviews
     }
@@ -69,7 +68,7 @@ def search(request):
 
 def detail(request, id):
     review = Review.objects.get(id=id)
-
+    
     context = {
         "review" : review
     }
