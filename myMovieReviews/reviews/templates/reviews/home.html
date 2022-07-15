@@ -22,6 +22,7 @@
     </style>
   </head>
   <body>
+    {% load mathfilters %}
     <div class="container mb-5">
       <ul class="nav fixed-top justify-content-between bg-light border-bottom">
         <li class="nav-item">
@@ -64,6 +65,10 @@
                 <p class="mb-0">개봉년도: {{review.release}}</p>
                 <p class="mb-0">장르: {{review.genre}}</p>
                 <p class="mb-0">별점: {{review.star}}</p>
+                <p class="mb-0">
+                  러닝타임: {{review.time|intdiv:60}}시간
+                  {{review.time|mod:60}}분
+                </p>
               </div>
             </div>
           </div>

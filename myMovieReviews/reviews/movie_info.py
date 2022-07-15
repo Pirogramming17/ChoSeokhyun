@@ -41,7 +41,10 @@ def searchInfo(keyword):
                         if data[2] != data[2].replace("분 ", ""):
                             data[2] = data[2].replace("분 ", "")
                             data[2] = int(data[2])
-                            data[3] = int(data[3])
+                            try:
+                                data[3] = int(data[3])
+                            except:
+                                continue
                     else:
                         if len(data) == 3:
                             if data[2][len(data[2])-2] != "분 ":

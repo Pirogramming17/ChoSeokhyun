@@ -23,6 +23,7 @@
     </style>
   </head>
   <body>
+    {% load mathfilters %}
     <div class="container py-5">
       <div class="container">
         <ul class="nav fixed-top justify-content-between border-bottom">
@@ -58,7 +59,9 @@
             <p>출연: {{review.actor}}</p>
             <p>장르: {{review.genre}}</p>
             <p>별점: {{review.star}}</p>
-            <p class="time"></p>
+            <p>
+              러닝타임: {{review.time|intdiv:60}}시간 {{review.time|mod:60}}분
+            </p>
           </div>
         </div>
         <div class="py-2 my-3" style="background-color: #e3e8ed">
@@ -66,13 +69,7 @@
         </div>
       </div>
     </div>
-    <script>
-      let a = "{{review.time}}";
-      let text = document.querySelector(".time");
-      let hour = parseInt(a / 60);
-      let minute = a % 60;
-      text.innerHTML = `러닝타임: ${hour}시간 ${minute}분`;
-    </script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
