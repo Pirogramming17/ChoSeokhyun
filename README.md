@@ -12,3 +12,4 @@
   - 첫번째 과제 커밋 오기입으로 해당 과제의 커밋을 일괄적으로 수정하여 반영하였습니다.
 - [x] djangogirls
 - [x] myMovieReviews
+- [ ] Facebook_ERD
