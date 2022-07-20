@@ -23,17 +23,59 @@
       <a class="nav-link text-success" href="{% url 'posts:idea_home' %}"
         >아이디어 관리</a
       >
-      <a class="nav-link text-success" href="{% url 'posts:dev_home' %}"
+      <a class="nav-link text-success" href="{% url 'posts:dev_create' %}"
         >개별툴 등록</a
       >
-      <a class="nav-link text-success" href="{% url 'posts:dev_detail' %}"
+      <a class="nav-link text-success" href="{% url 'posts:dev_home' %}"
         >개별툴 관리</a
       >
     </nav>
     <div class="container mt-5">
       <div class="top__container d-flex justify-content-center flex-wrap mb-5">
-        <h5>Idea Detail Update</h5>
+        <h5>Idea Register</h5>
       </div>
     </div>
+   
+    <div class="container align-items-center d-flex justify-content-center flex-column">
+      <form
+        action="/create"
+        method="post"
+      >
+        {% csrf_token %}
+        <div class="my-1">
+          <input
+            class='w-100'
+            type="text"
+            name="title"
+            placeholder="제목"
+            required
+          />
+        </div>
+        <input
+          type="file"
+          name="image"    
+        />
+        <div class="my-1">
+          <textarea
+            class='w-100'
+            name="content"
+            id=""
+            cols="30"
+            rows="10"
+            required
+          ></textarea>
+        </div>
+        <div class="my-1">
+          <input
+            type="number"
+            name="interest"
+            placeholder="아이디어 관심도"
+            required
+          />
+        </div>  
+        <div>
+          <input class='w-100'type="submit" value="수정하기" />
+        </div>
+      </form>
   </body>
 </html>
