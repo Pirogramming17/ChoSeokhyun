@@ -14,6 +14,9 @@ def ideaDetail(request):
 def ideaUpdate(request):
     pass
 
+def ideaDelete(request):
+    pass
+
 def devHome(request):
     pass
 
@@ -24,4 +27,7 @@ def devDetail(request):
     pass
 
 def devUpdate(request):
+    pass
+
+def devDelete(request):
     pass
