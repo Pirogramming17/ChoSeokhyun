@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from .models import Idea, DevTool
 
+
 # Create your views here.
 def ideaHome(request):
     sort = request.GET.get('sort', '')

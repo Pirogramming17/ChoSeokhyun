@@ -36,14 +36,16 @@
       </div>
       <div class="container">
         <h4>{{idea.title}}</h4>
-        <img src="{{idea.image.url}}" alt="" />
+        <img src="{{idea.image.url}}" alt="" class="w-50" />
         <p>1. 아이디어 관심도 : {{idea.interest}}</p>
         <p>
           2. 예상 개발 툴 :
-          <a
-            class="text-decoration-none text-dark"
-            href="{% url 'posts:dev_detail' idea.dev_tool.id%}"
-            >{{idea.dev_tool.name}}</a
+          <strong
+            ><a
+              class="text-decoration-none text-dark"
+              href="{% url 'posts:dev_detail' idea.dev_tool.id%}"
+              >{{idea.dev_tool.name}}</a
+            ></strong
           >
         </p>
         <p>3. 아이디어 설명 : {{idea.content}}</p>
