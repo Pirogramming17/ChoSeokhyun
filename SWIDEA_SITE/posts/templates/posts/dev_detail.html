@@ -23,16 +23,36 @@
       <a class="nav-link text-success" href="{% url 'posts:idea_home' %}"
         >아이디어 관리</a
       >
-      <a class="nav-link text-success" href="{% url 'posts:dev_home' %}"
+      <a class="nav-link text-success" href="{% url 'posts:dev_create' %}"
         >개별툴 등록</a
       >
-      <a class="nav-link text-success" href="{% url 'posts:dev_detail' %}"
+      <a class="nav-link text-success" href="{% url 'posts:dev_home' %}"
         >개별툴 관리</a
       >
     </nav>
     <div class="container mt-5">
       <div class="top__container d-flex justify-content-center flex-wrap mb-5">
         <h5>DevTool Detail</h5>
+      </div>
+      <div class="container">
+        <h5>{{tool.name}}</h5>
+        <p>{{tool.kind}}</p>
+        <p>{{tool.content}}</p>
+
+        <strong>💡만들 수 있는 SW 목록</strong>
+        {% for idea in ideas %}
+        <a href="{% url 'posts:idea_detail' idea.id %}">{{ idea.title }}</a>
+        {% endfor %}
+      </div>
+      <div class="container mt-5 d-flex justify-content-around">
+        <form action="{% url 'posts:dev_delete' tool.id %}" method="post">
+          {% csrf_token %}
+          <button class="btn btn-danger">삭제</button>
+        </form>
+        <a href="{% url 'posts:dev_home' %}" class="btn btn-secondary">목록</a>
+        <a href="{% url 'posts:dev_update' tool.id %}" class="btn btn-primary"
+          >수정</a
+        >
       </div>
     </div>
   </body>

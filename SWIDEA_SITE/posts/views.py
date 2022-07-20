@@ -38,16 +38,54 @@ def ideaDelete(request):
     pass
 
 def devHome(request):
-    pass
+    tools = DevTool.objects.all()
+    context = {
+        'tools' : tools
+    }
+
+    return render(request, template_name='posts/dev_home.html', context=context)
 
 def devCreate(request):
-    pass
+    if request.method == "POST":
+        name = request.POST["name"]
+        kind = request.POST["kind"]
+        content = request.POST["content"]
+        
+        new = DevTool.objects.create(name=name, kind=kind, content=content)
 
-def devDetail(request):
-    pass
+        return redirect(f"/dev_detail/{new.id}")
+    else:
+        
+        context = {
+            
+        }
+        return render(request, template_name="posts/dev_create.html", context=context)
 
-def devUpdate(request):
-    pass
+def devDetail(request, id):
+    tool = DevTool.objects.get(id=id)
+    ideas = Idea.objects.filter(dev_tool = tool)
+    context = {
+        'tool' : tool,
+        'ideas' : ideas
+    }
+    return render(request, template_name='posts/dev_detail.html', context=context)
 
-def devDelete(request):
-    pass
+def devUpdate(request, id):
+    if request.method == "POST":
+        name = request.POST["name"]
+        kind = request.POST["kind"]
+        content = request.POST["content"]
+        
+        DevTool.objects.filter(id=id).update(name=name, kind=kind, content=content)
+        return redirect(f"/dev_detail/{id}")
+    else:
+        tool = DevTool.objects.get(id=id)
+        context = {
+            "tool" : tool
+        }
+        return render(request, template_name="posts/dev_update.html", context=context)
+
+def devDelete(request, id):
+    if request.method == "POST":
+        DevTool.objects.filter(id=id).delete()
+    return redirect("/dev_home")

@@ -23,10 +23,10 @@
       <a class="nav-link text-success" href="{% url 'posts:idea_home' %}"
         >아이디어 관리</a
       >
-      <a class="nav-link text-success" href="{% url 'posts:dev_home' %}"
+      <a class="nav-link text-success" href="{% url 'posts:dev_create' %}"
         >개별툴 등록</a
       >
-      <a class="nav-link text-success" href="{% url 'posts:dev_detail' %}"
+      <a class="nav-link text-success" href="{% url 'posts:dev_home' %}"
         >개별툴 관리</a
       >
     </nav>
@@ -34,6 +34,30 @@
       <div class="top__container d-flex justify-content-center flex-wrap mb-5">
         <h5>DevTool List</h5>
       </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th style="width: 20%" scope="col">명칭</th>
+            <th style="width: 30%" scope="col">분류</th>
+            <th style="width: 50%" scope="col">소개</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for tool in tools%}
+          <tr>
+            <th scope="row">
+              <a
+                class="text-dark text-decoration-none"
+                href="{% url 'posts:dev_detail' tool.id %}"
+                >{{tool.name}}</a
+              >
+            </th>
+            <td>{{tool.kind}}</td>
+            <td>{{tool.content}}</td>
+          </tr>
+          {% endfor%}
+        </tbody>
+      </table>
     </div>
   </body>
 </html>
