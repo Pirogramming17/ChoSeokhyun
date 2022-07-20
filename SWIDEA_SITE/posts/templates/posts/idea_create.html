@@ -39,7 +39,7 @@
     <div
       class="container align-items-center d-flex justify-content-center flex-column"
     >
-      <form action="/idea_create" method="post">
+      <form action="/idea_create" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="my-1">
           <input
@@ -72,6 +72,7 @@
         <div class="my-1">
           <span>예상 개발툴 : </span>
           <select name="dev_tool">
+            <option value="" selected>-- 선택 --</option>
             {% for tool in tools%}
             <option value="{{tool.name}}">{{tool.name}}</option>
             {% endfor %}

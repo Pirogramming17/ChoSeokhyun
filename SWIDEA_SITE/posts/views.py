@@ -13,13 +13,13 @@ def ideaHome(request):
 def ideaCreate(request):
     if request.method == "POST":
         title = request.POST["title"]
-        image = request.FILE["photo"]
+        image = request.FILES.get("image")
         content = request.POST["content"]
         interest = request.POST["interest"]
-        dev_tool = request.POST["dev_tool"]
+        tool_name = request.POST["dev_tool"]
 
+        dev_tool = DevTool.objects.get(name = tool_name)
         new = Idea.objects.create(title=title, image=image, content=content, interest=interest, dev_tool=dev_tool)
-
         return redirect(f"/idea_detail/{new.id}")
     else:
         tools = DevTool.objects.all()
@@ -28,14 +28,40 @@ def ideaCreate(request):
         }
         return render(request, template_name="posts/idea_create.html", context=context)
 
-def ideaDetail(request):
-    pass
+def ideaDetail(request, id):
+    idea = Idea.objects.get(id=id)
+    context = {
+        'idea' : idea
+    }
 
-def ideaUpdate(request):
-    pass
+    return render(request, template_name='posts/idea_detail.html', context=context)
 
-def ideaDelete(request):
-    pass
+def ideaUpdate(request,id):
+    if request.method == "POST":
+        title = request.POST["title"]
+        if request.FILES.get('file') is not None:
+            image= request.FILES.get('file')
+        else:
+            image = Idea.objects.get(id=id).image
+        content = request.POST["content"]
+        interest = request.POST["interest"]
+        tool_name = request.POST["dev_tool"]
+        dev_tool = DevTool.objects.get(name = tool_name)
+        Idea.objects.filter(id=id).update(title=title, image=image, content=content, interest=interest, dev_tool=dev_tool)
+        return redirect(f"/idea_detail/{id}")
+    else:
+        idea = Idea.objects.get(id=id)
+        tools = DevTool.objects.all()
+        context = {
+            "idea" : idea,
+            "tools" : tools
+        }
+        return render(request, template_name="posts/idea_update.html", context=context)
+
+def ideaDelete(request, id):
+    if request.method == "POST":
+        Idea.objects.filter(id=id).delete()
+    return redirect("/")
 
 def devHome(request):
     tools = DevTool.objects.all()

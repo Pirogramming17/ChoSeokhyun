@@ -32,13 +32,13 @@
     </nav>
     <div class="container mt-5">
       <div class="top__container d-flex justify-content-center flex-wrap mb-5">
-        <h5>Idea Register</h5>
+        <h5>Idea Detail Update</h5>
       </div>
     </div>
    
     <div class="container align-items-center d-flex justify-content-center flex-column">
       <form
-        action="/create"
+        action="{% url 'posts:idea_update' idea.id%}"
         method="post"
       >
         {% csrf_token %}
@@ -48,12 +48,15 @@
             type="text"
             name="title"
             placeholder="제목"
+            value="{{idea.title}}"
             required
           />
         </div>
+        <p>현재 이미지 : {{idea.image}}</p>
+        <p>변경 이미지</p>
         <input
           type="file"
-          name="image"    
+          name="image"  
         />
         <div class="my-1">
           <textarea
@@ -63,16 +66,29 @@
             cols="30"
             rows="10"
             required
-          ></textarea>
+          >{{idea.content}}</textarea>
         </div>
         <div class="my-1">
           <input
             type="number"
             name="interest"
             placeholder="아이디어 관심도"
+            value="{{idea.interest}}"
             required
           />
         </div>  
+        <div class="my-1">
+          <span>예상 개발툴 : </span>
+          <select name="dev_tool" id="cur">
+            {% for tool in tools%}
+            {% if tool.name == idea.dev_tool.name%}
+            <option value="{{tool.name}}" selected>{{tool.name}}</option>
+            {% else %}
+            <option value="{{tool.name}}">{{tool.name}}</option>
+            {% endif %}
+            {% endfor %}
+          </select>
+        </div>
         <div>
           <input class='w-100'type="submit" value="수정하기" />
         </div>

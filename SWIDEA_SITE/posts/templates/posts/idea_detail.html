@@ -23,16 +23,33 @@
       <a class="nav-link text-success" href="{% url 'posts:idea_home' %}"
         >아이디어 관리</a
       >
-      <a class="nav-link text-success" href="{% url 'posts:dev_home' %}"
+      <a class="nav-link text-success" href="{% url 'posts:dev_create' %}"
         >개별툴 등록</a
       >
-      <a class="nav-link text-success" href="{% url 'posts:dev_detail' %}"
+      <a class="nav-link text-success" href="{% url 'posts:dev_home' %}"
         >개별툴 관리</a
       >
     </nav>
     <div class="container mt-5">
       <div class="top__container d-flex justify-content-center flex-wrap mb-5">
         <h5>Idea Detail</h5>
+      </div>
+      <div class="container">
+        <h4>{{idea.title}}</h4>
+        <img src="{{idea.image.url}}" alt="" />
+        <p>1. 아이디어 관심도 : {{idea.interest}}</p>
+        <p>2. 예상 개발 툴 : {{idea.dev_tool.name}}</p>
+        <p>3. 아이디어 설명 : {{idea.content}}</p>
+      </div>
+      <div class="container mt-5 d-flex justify-content-around">
+        <form action="{% url 'posts:idea_delete' idea.id %}" method="post">
+          {% csrf_token %}
+          <button class="btn btn-danger">삭제</button>
+        </form>
+        <a href="{% url 'posts:idea_home' %}" class="btn btn-secondary">목록</a>
+        <a href="{% url 'posts:idea_update' idea.id %}" class="btn btn-primary"
+          >수정</a
+        >
       </div>
     </div>
   </body>
