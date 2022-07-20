@@ -38,7 +38,14 @@
         <h4>{{idea.title}}</h4>
         <img src="{{idea.image.url}}" alt="" />
         <p>1. 아이디어 관심도 : {{idea.interest}}</p>
-        <p>2. 예상 개발 툴 : {{idea.dev_tool.name}}</p>
+        <p>
+          2. 예상 개발 툴 :
+          <a
+            class="text-decoration-none text-dark"
+            href="{% url 'posts:dev_detail' idea.dev_tool.id%}"
+            >{{idea.dev_tool.name}}</a
+          >
+        </p>
         <p>3. 아이디어 설명 : {{idea.content}}</p>
       </div>
       <div class="container mt-5 d-flex justify-content-around">
