@@ -5,6 +5,7 @@ from django.urls import path
 from . import views
 
 appname='posts'
+
 urlpatterns = [
     path('', views.ideaHome,name='idea_home'),
     path('idea_create', views.ideaCreate, name="idea_create"),
