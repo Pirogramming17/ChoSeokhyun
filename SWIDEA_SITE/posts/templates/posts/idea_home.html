@@ -34,6 +34,19 @@
       <div class="top__container d-flex justify-content-center flex-wrap mb-5">
         <h5>Idea List</h5>
       </div>
+      <form action="{% url 'posts:idea_home' %}">
+        {% csrf_token %}
+        <select name="sort">
+          <option value="" selected>-- 정렬 기준 --</option>
+          <option value="">찜하기 순</option>
+          <option value="title">이름 순</option>
+          <option value="created_at">등록 순</option>
+          <option value="-created_at">최신 순</option>
+          <option value="-updated_at">최근 수정 순</option>
+        </select>
+        <input type="submit" value="정렬" />
+      </form>
+
       <div class="card-group">
         {% for post in posts%}
         <div class="card">

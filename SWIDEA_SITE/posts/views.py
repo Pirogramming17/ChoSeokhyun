@@ -3,7 +3,12 @@ from .models import Idea, DevTool
 
 # Create your views here.
 def ideaHome(request):
-    posts = Idea.objects.all()
+    sort = request.GET.get('sort', '')
+    if sort == '':
+        posts = Idea.objects.all()
+    else:
+        posts = Idea.objects.all().order_by(sort)
+
     context = {
         'posts' : posts
     }
